@@ -5,6 +5,7 @@
             <img :src="data.img" alt="">
             <p>{{ data.name }}</p>
         </div>
+        <v-touch tag='p' v-on:tap='collect' class="collec">{{collect_message}}</v-touch>
         <div class="min">
             <h3>景点介绍</h3>
             <p>{{ data.detail }}</p>
@@ -29,18 +30,46 @@
         },
         data(){
             return{
-                data:{}
+                uid:sessionStorage.getItem('uid'),
+                sid:'',
+                data:{},
+                collect_message:'',
             }
         },
         mounted(){
-            var id= this.$route.params.id;
-             fetch('/ajax/scenicDetail/?id='+id).then(function(e){
+            this.sid= this.$route.params.id;
+             fetch('/ajax/scenicDetail/?id='+this.sid).then(function(e){
                     return e.text()
                 }).then((e)=>{
                     this.data=JSON.parse(e)
+                    this.axios.get(`/ajax/collectInfo/?uid=${this.uid}&sid=${this.sid}`)
+                        .then((e)=>{
+                            if (e.data == 'ok'){
+                                this.collect_message = '取消收藏'
+                            }else{
+                                this.collect_message = '收藏'
+                            }
+                        })
                 })
         },
         methods:{
+            collect(){
+                var form =new FormData();
+                form.append('uid',this.uid);
+                form.append('sid',this.sid);
+                form.append('flag',this.flag);
+              this.axios.post('/ajax/collect',form)
+                  .then((e)=>{
+                      if (e.data == 'insert'){
+                          this.collect_message = '取消收藏'
+                      }else if(e.data == 'delete'){
+                          this.collect_message = '收藏'
+                      }
+                  })
+                  .catch((error)=>{
+                      alert('服务器请求异常')
+                  })
+            },
             sel1(id){
                 this.$router.push('/gaikuang/'+id)
             },
@@ -100,5 +129,13 @@
     .bottom .box .select{
         width:25%;text-align: center;font-size: 14px;color:deepskyblue;
 
+    }
+     .collec{
+        font-size:15px;
+        position:fixed;
+        top:.3rem;right:0.6rem;
+        color:#5ABFED;
+        z-index: 99;
+         font-weight:600;
     }
 </style>

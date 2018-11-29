@@ -11,18 +11,18 @@
       <div class="con">
           <div class="user">
               <img src="@/assets/img/user.png" alt="">
-              <input type="text" placeholder="请在此处输入您的用户名" name="userName" v-model="userName" autocomplete="off">
+              <input type="text" placeholder="请在此处输入您的用户名" name="userName" v-model="userName" autocomplete="off" @keyup.enter="submit">
               <!--<span class="circle5" v-bind:style="tishi2"></span>-->
           </div>
           <div class="password">
               <img src="@/assets/img/pass.png" alt="">
-              <input type="password" placeholder="请输入您的密码" name="password" v-model="password">
+              <input type="password" placeholder="请输入您的密码" name="password" v-model="password" @keyup.enter="submit">
               <!--<span class="circle5" v-bind:style="tishi3"></span>-->
               <div class="error" v-bind:style="mimatishi"><img src="@/assets/img/error.png" alt="" >账户和密码不一致</div>
           </div>
           <!--<div class="forget"><div class="circle"></div><a href="">忘记密码</a></div>-->
       </div>
-      <button type="button" class="login" @click="submit">立即登录</button>
+      <button type="button" class="login" @click="submit" @keyup.enter="submit">立即登录</button>
       <router-link :to="{name:'reg'}" class="regus" tag="a"><span class="zbt"></span>还没加入轻游?&nbsp;&nbsp;注册加入我们<span class="ybt"></span></router-link>
   </div>
 </template>
@@ -41,9 +41,25 @@ export default {
     },
     methods: {
         submit() {
-            fetch(`/ajax/login/?userName=${this.userName}&password=${this.password}`).then((res) => {
+             // this.$ajax({
+             //     method:'post',
+             //     url:'ajax/login/',
+             //     data:{
+             //         userName:this.userName,
+             //         password:this.password,
+             //     },
+             //     success:function(data){
+             //         console.log(data)
+             //     },
+             //     error:function(){
+             //         alert('请求失败')
+             //     }
+             // })
+            fetch(`/ajax/login/?userName=${this.userName}&password=${this.password}`)
+            .then((res) => {
                 return res.text()
-            }).then((res) => {
+            })
+            .then((res) => {
                  if (res == "error") {
                     this.mimatishi.display="block"
                 }else{
@@ -198,6 +214,7 @@ input::-webkit-input-placeholder{
     border: 1px solid #fff;
     margin: 0 auto;
     margin-top: 0.51rem;
+    outline: none;
 }
 .regus{
     display: block;

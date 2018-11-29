@@ -5,8 +5,9 @@
                 <span>轻</span><span>游</span>
             </div>
             <div class="bottom">
-                <div class="ztx"></div><span>来一场所走就走的旅行</span><div class="ytx"></div>
+                <div class="ztx"></div><span>来一场所走就走的旅行</span><div class="ytx">
             </div>
+        </div>
             <div class="quan">
                 <div class="circle3">
                     <div class="mini"></div>
@@ -18,26 +19,32 @@
         <div class="con">
             <div class="user">
                 <img src="@/assets/img/user.png" alt="">
-                <input type="text" placeholder="请在此处输入您的用户名" name="userName" v-model="userName" autocomplete="off">
-                <span class="circle5" v-bind:style="tishi2"></span>
-                <div class="error" v-bind:style="objstyle"><img src="@/assets/img/error.png" alt="">用户已存在</div>
-                <div class="error" v-bind:style="objstyle2"><img src="@/assets/img/error.png" alt="">用户名称不符合规范</div>
+                <input type="text" placeholder="用户名" name="userName" v-model="userName" autocomplete="off" @change="inputChange" @keyup.enter = 'submit'>
             </div>
             <div class="password">
                 <img src="@/assets/img/pass.png" alt="">
-                <input type="password" placeholder="请输入您的密码" name="password" v-model="password">
-                <span class="circle5" v-bind:style="tishi"></span>
-                <div class="error" v-bind:style="mimatishi"><img src="@/assets/img/error.png" alt="">密码需要至少6位</div>
+                <input type="password" placeholder="密码" name="password" v-model="password" @change="inputChange" @keyup.enter = 'submit'>
             </div>
             <div class="password2">
                 <img src="@/assets/img/pass.png" alt="">
-                <input type="password" placeholder="请再次确认您的密码" name="password1" v-model="password1">
-                <span class="circle5" v-bind:style="tishi3"></span>
-                <div class="error" v-bind:style="pipei"><img src="@/assets/img/error.png" alt="" >俩次密码不一致</div>
+                <input type="password" placeholder="确认密码" name="password1" v-model="password1" @change="inputChange" @keyup.enter = 'submit'>
+            </div>
+            <div class="sign">
+                <p>
+                    <span>提示：</span>
+                    用户名为字母开头，2-8位；<br>
+                    密码为6-18位，至少包含一个大写字母、数字、特殊字符
+                </p>
+            </div>
+            <div class="error">
+                <p>{{error}}</p>
             </div>
         </div>
         <button type="button" class="join" @click="submit">加入轻游</button>
-        <div class="tiaokuan">已有轻游账号？请点击 <span @click="returnlogin" class="returnlogin">这里</span></div>
+        <div class="tiaokuan">
+            已有轻游账号？请点击
+            <span @click="returnlogin" class="returnlogin">这里</span>
+        </div>
     </div>
 </template>
 
@@ -49,71 +56,41 @@
                 userName:"",
                 password:"",
                 password1:"",
-                objstyle:{display:"none"},
-                pipei:{display:"none"},
-                tishi:{display:"none",background:"red"},
-                mimatishi:{display:"none"},
-                tishi2:{display:"none",background:"red"},
-                objstyle2:{display:"none"},
-                tishi3:{display:"none",background:"red"},
+                error:'',
             }
         },
-        watch:{
-             password:function () {
-                 this.mimatishi.display="block"
-                 this.tishi.display="block"
-                 if(this.password.length>5){
-                     this.tishi.background="green"
-                     this.mimatishi.display="none"
-                 }else if (this.password.length<6){
-                     this.tishi.background="red"
-                 }
-             },
-             userName:function () {
-                 this.tishi2.display="block"
-                 var reg=/^[a-zA-Z]+\w$/
-                 var result=reg.test(this.userName)
-                 if(result==true){
-                     this.tishi2.background="green"
-                     this.objstyle2.display="none"
-                 }else {
-                     this.tishi2.background="red"
-                     this.objstyle2.display="block"
-                 }
-             },
-             password1:function () {
-                 this.tishi3.display="block"
-                 this.pipei.display="block"
-                 if (this.password==this.password1) {
-                     this.tishi3.background="green"
-                     this.pipei.display="none"
-                 }
-             }
-        },
         methods:{
+            inputChange(){
+              this.error = '';
+            },
              returnlogin(){
                 this.$router.push('/login/')
             },
             submit() {
-            fetch(`/ajax/reg/?userName=${this.userName}&password=${this.password}&password1=${this.password1}`).then((res) => {
-                return res.text()
-            }).then((res)=>{
-               if (res=="ok"){
-                    this.$router.push("/login")
+                 let reg =/^(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@&%$^#_.])[A-Za-z0-9~!@&%$^#_.]{8,16}$/;
+                if (this.password == this.password1 && reg.test(this.password) ==true){
+                    fetch(`/ajax/reg/?userName=${this.userName}&password=${this.password}&password1=${this.password1}`)
+                     .then((res) => {
+                        return res.text()
+                    })
+                    .then((res)=>{
+                        if (res == 'exit'){
+                            this.error = '用户名已存在'
+                        }else if(res == 'ok'){
+                            this.$router.push('/login')
+                        }
+                    })
+                    .catch(function(){
+                        alert('网络连接错误')
+                    })
+                }else if(this.password !=this.password1) {
+                    this.error = '两次密码不一致，请重新输入';
+                }else if (reg.test(this.password) == false){
+                    this.error = '密码不符合规则，请重新输入'
                 }
-                else if(res=="cunzai"){
-                    this.objstyle.display="block"
-                    this.$router.push("/reg")
-                }
-                else if (res=="no") {
-                    this.pipei.display="block"
-                    this.$router.push("/reg")
-                }
-            })
-        }
+            }
         }
     }
-//    俩个密码验证通过后台，用户存在与否验证通过后台。用户格式通过前台验证。
 </script>
 
 <style scoped>
@@ -183,15 +160,28 @@ body{
     width: 5.84rem;
     margin:0 auto;
     margin-top: 0.58rem;
-    height: 3.56rem;
+    height: 5.5rem;
     border-radius: 5px;
     box-shadow: 0 0 12px 6px #E8E8E8;
     background: white;
     position: relative;
     overflow: hidden;
 }
+.con .sign{
+    width:5rem;height:auto;margin-top:.2rem;
+    font-size:14px;color:#ccc;
+    line-height:.4rem;margin-left:.4rem;
+}
+.con .error{
+    width:100%;height:auto;margin-top:.2rem;
+    font-size:14px;color:red;
+    text-align: center;
+}
+.sign span{
+    color:#FCE775;
+}
 .user,.password,.password2{
-    width: 4.44rem;
+    width: 100%;
     height: 0.4rem;
     display: flex;
 }
@@ -240,29 +230,6 @@ input::-webkit-input-placeholder{
     margin-top: -0.24rem;
     position: absolute;
 }
-.forget{
-    width: 1.4rem;
-    height: auto;
-    margin-left: 4.37rem;
-    margin-top: 0.34rem;
-    display: flex;
-    align-content: center;
-}
-.forget a{
-    font-size: 0.22rem;
-    font-family: PingFangSC-Semibold, sans-serif;
-    margin-left: 0.13rem;
-    color: #000000;
-    opacity: 0.4;
-}
-.circle{
-    width: 0.18rem;
-    height: 0.18rem;
-    border-radius: 50%;
-    margin: auto 0;
-    background-color: deepskyblue;
-    margin-top: 0.12rem;
-}
 .join{
     display: block;
     width: 2.8rem;
@@ -275,38 +242,8 @@ input::-webkit-input-placeholder{
     border: 1px solid #fff;
     margin: 0 auto;
     margin-top: 0.51rem;
+    outline:none;
     background: -webkit-linear-gradient(left,  #72f0d2,#5beabb)
-}
-.regus{
-    display: block;
-    width: 100%;
-    height: auto;
-    font-size: 0.22rem;
-    font-family: PingFangSC-Semibold, sans-serif;
-    text-align: center;
-    margin-top: 0.37rem;
-    color: #BDBDBD;
-    position: relative;
-}
-.regus .zbt{
-    display: block;
-    width: 0.15rem;
-    height: 0.07rem;
-    background: #FCE775;
-    position: absolute;
-    top: 0;bottom: 0;left: 1.9rem;
-    margin: auto;
-    border-radius: 0.05rem;
-}
-.regus .ybt{
-    display: block;
-    width: 0.15rem;
-    height: 0.07rem;
-    background: #FCE775;
-    position: absolute;
-    top: 0;bottom: 0;right: 1.9rem;
-    margin: auto;
-    border-radius: 0.05rem;
 }
 .tiaokuan{
     width: 100%;
@@ -316,68 +253,5 @@ input::-webkit-input-placeholder{
     margin-top: 0.23rem;
     position: relative;
     color:#BDBDBD;
-}
-.circle2{
-    display: block;
-    width: 0.15rem;
-    height: 0.15rem;
-    border-radius: 50%;
-    background: #72f0d2;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 1.8rem;
-    margin: auto;
-}
-.quan{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 0.64rem;
-}
-.circle4{
-    width: 0.13rem;
-    height: 0.13rem;
-    border-radius: 50%;
-    background: #75FBBF;
-    margin-top: 0.05rem;
-    margin-left: 0.3rem;
-}
-.circle3{
-    width: 0.22rem;
-    height: 0.22rem;
-    border-radius: 50%;
-    background-color: #C5FBE3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.circle3 .mini{
-    width: 0.08rem;
-    height: 0.08rem;
-    border-radius: 50%;
-    border: 0.02rem double #75FBBF;
-    background: white;
-}
-.error{
-    width: 2.96rem;
-    height: 0.5rem;
-    border-radius: 0.3rem;
-    box-shadow: 0 0 6px 2px #E8E8E8;
-    font-size: 0.22rem;
-    color: red;
-    position: absolute;
-    left: 0.8rem;
-    top: 0.36rem;
-    line-height: 0.5rem;
-    text-indent: 0.6rem;
-}
-.error img{
-    position: absolute;
-    width: 0.6rem;
-    height: 0.6rem;
-    top: 0.24rem;
-    left: -0.46px;
 }
 </style>

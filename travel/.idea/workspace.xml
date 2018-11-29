@@ -48,85 +48,114 @@
     <session id="-1873471328">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.28" value="1" />
-          <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="4" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="1542076845973jpg" value="1" />
           <entry key="answers" value="4" />
-          <entry key="collections" value="1" />
-          <entry key="jpg" value="3" />
-          <entry key="py" value="17" />
+          <entry key="collections" value="4" />
+          <entry key="css" value="5" />
+          <entry key="html" value="1" />
+          <entry key="jpg" value="58" />
+          <entry key="js" value="8" />
+          <entry key="note_images" value="1" />
+          <entry key="png" value="3" />
+          <entry key="py" value="33" />
           <entry key="questions" value="3" />
           <entry key="scenic" value="2" />
-          <entry key="sql" value="1" />
-          <entry key="travel_note" value="6" />
-          <entry key="user" value="3" />
+          <entry key="sql" value="2" />
+          <entry key="travel_note" value="12" />
+          <entry key="user" value="5" />
+          <entry key="users" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="19" />
-          <entry key="Image" value="3" />
+          <entry key="CSS" value="5" />
+          <entry key="Database Element" value="36" />
+          <entry key="HTML" value="1" />
+          <entry key="Image" value="61" />
+          <entry key="JavaScript" value="8" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="17" />
+          <entry key="Python" value="33" />
+          <entry key="SQL" value="1" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="129" />
-          <entry key="py" value="2640" />
-          <entry key="sql" value="25" />
+          <entry key="cell" value="155" />
+          <entry key="html" value="17" />
+          <entry key="js" value="19" />
+          <entry key="py" value="6869" />
+          <entry key="sql" value="52" />
           <entry key="txt" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="HTML" value="17" />
+          <entry key="JavaScript" value="19" />
           <entry key="PLAIN_TEXT" value="17" />
-          <entry key="Python" value="2640" />
-          <entry key="SQL" value="25" />
-          <entry key="Scratch" value="129" />
+          <entry key="Python" value="6869" />
+          <entry key="SQL" value="52" />
+          <entry key="Scratch" value="155" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/urls.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ajax/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            <state relative-caret-position="340">
+              <caret line="212" column="14" lean-forward="true" selection-start-line="212" selection-start-column="14" selection-end-line="212" selection-end-column="14" />
               <folding>
-                <element signature="e#0#36#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
+                <marker date="1543467768704" expanded="true" signature="2694:2826" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="3203:3325" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="3532:3858" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="3874:3879" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="4284:4289" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="4727:5047" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="5514:5577" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="6063:6068" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="6375:6380" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="6569:6570" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="6764:6765" ph="..." />
+                <marker date="1543467768704" expanded="true" signature="7081:7082" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ajax/views.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/collections">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ajax/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="78" column="12" lean-forward="true" selection-start-line="78" selection-start-column="12" selection-end-line="78" selection-end-column="12" />
+            <state relative-caret-position="237">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <marker date="1542182992492" expanded="true" signature="2628:2758" ph="..." />
-                <marker date="1542182992492" expanded="true" signature="3301:3306" ph="..." />
-                <marker date="1542182992492" expanded="true" signature="3697:3702" ph="..." />
-                <marker date="1542182992492" expanded="true" signature="4519:4524" ph="..." />
-                <marker date="1542182992492" expanded="true" signature="4807:4812" ph="..." />
-                <marker date="1542182992492" expanded="true" signature="4998:4999" ph="..." />
-                <marker date="1542182992492" expanded="true" signature="5191:5192" ph="..." />
-                <marker date="1542182992492" expanded="true" signature="5489:5490" ph="..." />
-                <marker date="1542182992492" expanded="true" signature="5672:5673" ph="..." />
+                <element signature="e#0#36#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,13 +166,40 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>data</find>
+      <find>APPEND_SLASH</find>
+      <find>user</find>
+      <find>login</find>
+      <find>reg</find>
+      <find>img</find>
+      <find>jing</find>
+      <find>jing.</find>
+      <find>img/</find>
+      <find>ajax/login</find>
+      <find>CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci</find>
+      <find>updat</find>
+      <find>update_info</find>
+      <find>rehead</find>
+      <find>info</find>
+      <find>writing</find>
+      <find>coll</find>
+      <find>scenicDetail</find>
+      <find>collect</find>
     </findStrings>
+    <replaceStrings>
+      <replace>../static/img/</replace>
+      <replace>CHARSET=utf8</replace>
+    </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ajax/model/sql.py" />
         <option value="$PROJECT_DIR$/../人脸识别.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/travel.sql" />
+        <option value="$PROJECT_DIR$/static/js/app.119d25be.js" />
+        <option value="$PROJECT_DIR$/travel/settings.py" />
+        <option value="$PROJECT_DIR$/travel/urls.py" />
         <option value="$PROJECT_DIR$/ajax/urls.py" />
         <option value="$PROJECT_DIR$/ajax/views.py" />
       </list>
@@ -155,18 +211,17 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="47" />
-    <option name="y" value="24" />
-    <option name="width" value="1400" />
-    <option name="height" value="821" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="131" />
+    <option name="y" value="37" />
+    <option name="width" value="1176" />
+    <option name="height" value="853" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,16 +234,11 @@
               <item name="travel" type="462c0819:PsiDirectoryNode" />
               <item name="ajax" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="ajax" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -198,6 +248,18 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\travel\templates" />
+      <recent name="C:\Users\Administrator\Desktop\travel\static\js" />
+      <recent name="C:\Users\Administrator\Desktop\travel\static\img" />
+      <recent name="C:\Users\Administrator\Desktop\travel\static" />
+      <recent name="C:\Users\Administrator\Desktop\travel\static\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\travel\static\img" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -281,13 +343,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22686376" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11825193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22707424" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -295,16 +357,16 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50064266" side_tool="true" weight="0.38492596" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4993573" weight="0.31090176" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32974428" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4993573" visible="true" weight="0.27590847" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32848838" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32896653" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.17544988" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.23136246" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,32 +376,91 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/1542076845973jpg" />
-    <entry file="file://$PROJECT_DIR$/1542076903008.jpg" />
-    <entry file="file://$PROJECT_DIR$/1542076950693.jpg" />
-    <entry file="file://$PROJECT_DIR$/1542077025755.jpg" />
-    <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/collections">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/base64.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-519">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1542966572000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542966546000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542966631000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542966754000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542966769000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542967056000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542967075000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542966690000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542967555000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542969168000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542969090000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542968983000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542969204000.png" />
+    <entry file="file://$PROJECT_DIR$/1542969336000.png" />
+    <entry file="file://$PROJECT_DIR$/1542970038000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542970153000.jpg" />
+    <entry file="file://$PROJECT_DIR$/1542969611000.jpg" />
+    <entry file="file://$PROJECT_DIR$/ajax/model/sql.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/1543392811000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543393111000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543393364000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/bdcbe66851.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/6e7452c014.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/note_images">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/answers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/travel/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
-    <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/static/img/1543393719000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543393877000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543393944000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543394195000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543394240000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543394503000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543394628000.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543397124124.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543397142149.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543398307169.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543398177230.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543397414939.jpg" />
+    <entry file="file://$PROJECT_DIR$/aa.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/questions">
+    <entry file="file://$PROJECT_DIR$/static/img/1543399590795.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/1543459763322.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/1543459818378.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/1543459870753.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/1543459893393.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/7563641ae9.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/1543460171739.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -353,7 +474,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/scenic">
+    <entry file="das://6bd80f7d-e554-41b1-b609-514fb645b6e5/schema/travel/table/collections">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -362,8 +483,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        <state relative-caret-position="237">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
@@ -372,19 +493,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="78" column="12" lean-forward="true" selection-start-line="78" selection-start-column="12" selection-end-line="78" selection-end-column="12" />
+        <state relative-caret-position="340">
+          <caret line="212" column="14" lean-forward="true" selection-start-line="212" selection-start-column="14" selection-end-line="212" selection-end-column="14" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1542182992492" expanded="true" signature="2628:2758" ph="..." />
-            <marker date="1542182992492" expanded="true" signature="3301:3306" ph="..." />
-            <marker date="1542182992492" expanded="true" signature="3697:3702" ph="..." />
-            <marker date="1542182992492" expanded="true" signature="4519:4524" ph="..." />
-            <marker date="1542182992492" expanded="true" signature="4807:4812" ph="..." />
-            <marker date="1542182992492" expanded="true" signature="4998:4999" ph="..." />
-            <marker date="1542182992492" expanded="true" signature="5191:5192" ph="..." />
-            <marker date="1542182992492" expanded="true" signature="5489:5490" ph="..." />
-            <marker date="1542182992492" expanded="true" signature="5672:5673" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="2694:2826" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="3203:3325" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="3532:3858" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="3874:3879" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="4284:4289" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="4727:5047" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="5514:5577" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="6063:6068" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="6375:6380" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="6569:6570" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="6764:6765" ph="..." />
+            <marker date="1543467768704" expanded="true" signature="7081:7082" ph="..." />
           </folding>
         </state>
       </provider>

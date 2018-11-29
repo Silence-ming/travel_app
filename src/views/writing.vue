@@ -1,7 +1,7 @@
 <template>
     <div id="askDetail">
         <Back msg="写游记" />
-        <textarea name="" id="" cols="50" rows="38" v-model="experience">
+        <textarea name="" id="" cols="50" rows="38" v-model="experience" placeholder="将您的经历写下来吧...">
         </textarea>
         <div class="imgs">
             <div class="img" v-for="img in imgs">
@@ -26,7 +26,8 @@
                 uid:sessionStorage.getItem('uid'),
                 error:'',
                 imgs:[],
-              experience:'将您的经历写下来吧...'
+                img_file:'',
+              experience:''
             }
         },
         methods:{
@@ -40,28 +41,24 @@
                 reader.onload = (data) => {
                      let res = data.target || data.srcElement;
                      this.imgs.push(res.result);
+                     this.img_file = file
                 };
                 reader.readAsDataURL(file)
             },
              commit(){
                  if (this.experience.length >=20){
                      this.error = '';
-                     // for (var img in this.imgs){
-                     //      var curWwwPath = window.document.location.href;
-                     //     var pathname= window.document.location.pathname;
-                     //     var pos = curWwwPath.indexOf(pathname);
-                     //     var localhostPath = curWwwPath .substring(0,pos);
-                     //     img=localhostPath + img;
-                     // }
-                     fetch(`/ajax/writing?experience=${this.experience}&uid=${this.uid}&imgs=${this.imgs[0]}`).then(function(e){
-                         return e.text()
-                     }).then((e)=>{
-                         if (e =='ok'){
+                     var form = new FormData();
+                     form.append('uid',this.uid);
+                     form.append('experience',this.experience);
+                     form.append('img_file',this.img_file);
+                     this.axios.post('/ajax/writing',form)
+                         .then((e)=>{
                              this.$router.push('/notes')
-                         }else{
-                             this.error = '提示：加载失败，请重新输入！'
-                         }
-                     });
+                         })
+                         .catch((error)=>{
+                              this.error = '提示：加载失败，请重新输入！'
+                         })
                  }else{
                      this.error = '提示：输入的内容不得少于20个字'
                  }

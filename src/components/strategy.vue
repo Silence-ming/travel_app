@@ -1,7 +1,7 @@
 <template>
 <div class="hots">
     <div class="top" @click="search">
-        <input type="text" placeholder="请输入景点名">
+        <input type="text" placeholder="请输入景点名" disabled="disabled">
         <img src="@/assets/img/jing.png" alt="">
     </div>
     <div class="min">

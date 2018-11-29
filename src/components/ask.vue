@@ -1,19 +1,15 @@
 <template>
   <div id="ask">
-    <div class="top">
-      <input type="text" placeholder="在这里输入问题">
-      <img src="@/assets/img/jing.png" alt="">
-    </div>
-    <div class="content">
-      <v-touch tag="div" class="box" v-for="item in data" v-on:tap="detail(item.id)">
+    <v-touch class="top" tag="div" v-on:tap = "asking">
+      <input type = "text" placeholder = "在这里输入问题" disabled="disabled">
+      <img src = "@/assets/img/jing.png" alt = "">
+    </v-touch>
+    <div class = "content">
+      <v-touch tag="div" class="box" v-for="item in data" v-on:tap = "detail(item.id)">
         <p class="head">{{item.question}}</p>
         <p class="time">{{item.times}}</p>
       </v-touch>
     </div>
-    <v-touch class="asking" tag="div" @tap="asking">
-      <p class="iconfont">&#xe60a;</p>
-      <p class="text">提问</p>
-    </v-touch>
   </div>
 </template>
 
@@ -70,7 +66,7 @@ export default {
   }
   .top img{
       width:0.3rem;height:0.3rem;
-      position: absolute;top:0.35rem;left:0.6rem;
+      position: absolute;top:0.3rem;left:0.6rem;
   }
   .content{
     width:100%;margin-top:0.6rem;
@@ -103,19 +99,5 @@ export default {
     width:100%;
     height:0.1rem;
     font-size:0.12rem;
-  }
-  .asking{
-    width:1.8rem;height:0.8rem;border-radius: 0.5rem;
-    background:#FCE247;position:fixed;
-    bottom:1.5rem;left:0;right:0;margin:0 auto;
-
-  }
-  .asking .iconfont{
-    float:left;font-size:20px;
-    line-height: 0.8rem;margin-left:0.2rem;
-  }
-  .asking .text{
-    float:left;margin-left:0.2rem;font-size:18px;
-    line-height: 0.8rem;font-weight:600;
   }
 </style>

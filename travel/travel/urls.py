@@ -20,6 +20,6 @@ def client(req):
     return render(req,'index.html')
 urlpatterns = [
     path('client/',client),
-    #path('admin/', admin.site.urls),
+    #path('/admin/', admin.site.urls),
     path('ajax/',include('ajax.urls'))
 ]

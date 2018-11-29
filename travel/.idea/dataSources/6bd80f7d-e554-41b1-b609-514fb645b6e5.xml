@@ -1118,7 +1118,7 @@
     <table id="282" parent="7" name="questions"/>
     <table id="283" parent="7" name="scenic"/>
     <table id="284" parent="7" name="travel_note"/>
-    <table id="285" parent="7" name="user"/>
+    <table id="285" parent="7" name="users"/>
     <column id="286" parent="279" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
@@ -1315,7 +1315,7 @@
     </column>
     <column id="322" parent="285" name="head">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(10000)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="323" parent="285" name="uname">

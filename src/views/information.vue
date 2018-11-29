@@ -33,6 +33,7 @@
           return{
               uid:sessionStorage.getItem('uid'),
               head:'',
+              img_file:"",
               uname:'',
               note:'',
               newName:'',
@@ -60,40 +61,47 @@
           });
         },
       methods:{
-        uploadHeadImg: function () {
+        uploadHeadImg() {
             this.$el.querySelector('.hiddenInput').click();
         },
-        handleChange(){
+        handleFile(e) {
+            let $target = e.target || e.srcElement;
+            let file = $target.files[0];
+            var reader = new FileReader();
+            reader.onload = (data) => {
+                 let res = data.target || data.srcElement;
+                 this.head = res.result;
+                 this.img_file = file
+            };
+            reader.readAsDataURL(file);
             this.error = '';
+            this.flag = 1;
+        },
+        handleChange(){
+          this.error = '';
           this.flag = 1
         },
           commits(){
             if (this.flag == 1){
                 if (this.newName.length <= 10 && this.newNote.length <=30){
-                    fetch('ajax/update_info/?name='+this.newName+'&note='+this.newNote+'&uid='+this.uid).then(()=>{
-                        this.$router.push('/person')
-                    })
+                    var form = new FormData();
+                    form.append('name',this.newName);
+                    form.append('note',this.newNote);
+                    form.append('uid',this.uid);
+                    form.append('img_file',this.img_file);
+                    this.axios.post('/ajax/update_info',form)
+                        .then((e)=>{
+                            this.$router.push('/person')
+                         })
+                        .catch((error)=>{
+                                  this.error = '提示：加载失败，请重新输入！'
+                         })
                 }else{
                     this.error = '输入内容过长，请重新输入'
                 }
             }
 
           },
-         // 将头像显示
-        handleFile: function (e) {
-            let $target = e.target || e.srcElement;
-            let file = $target.files[0];
-            var reader = new FileReader();
-            reader.onload = (data) => {
-                 let res = data.target || data.srcElement;
-                 this.head = res.result
-            };
-            reader.readAsDataURL(file);
-            this.error = '';
-            this.flag = 1
-            //后台：
-            fetch('ajax/rehead/?newhead='+this.head+'&uid='+this.uid)
-        },
       }
   }
 </script>
