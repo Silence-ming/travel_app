@@ -1,7 +1,7 @@
 <template>
     <div id="askDetail">
         <Back msg="写游记" />
-        <textarea name="" id="" cols="50" rows="38" v-model="experience" placeholder="将您的经历写下来吧...">
+        <textarea name="" id="" cols="50" rows="38" v-model="note" placeholder="将您的经历写下来吧...">
         </textarea>
         <div class="imgs">
             <div class="img" v-for="img in imgs">
@@ -26,8 +26,8 @@
                 uid:sessionStorage.getItem('uid'),
                 error:'',
                 imgs:[],
-                img_file:'',
-              experience:''
+                img_files:'',
+                note:''
             }
         },
         methods:{
@@ -41,17 +41,17 @@
                 reader.onload = (data) => {
                      let res = data.target || data.srcElement;
                      this.imgs.push(res.result);
-                     this.img_file = file
+                     this.img_files = file
                 };
                 reader.readAsDataURL(file)
             },
              commit(){
-                 if (this.experience.length >=20){
+                 if (this.note.length >=20){
                      this.error = '';
                      var form = new FormData();
                      form.append('uid',this.uid);
-                     form.append('experience',this.experience);
-                     form.append('img_file',this.img_file);
+                     form.append('note',this.note);
+                     form.append('img_files',this.img_files);
                      this.axios.post('/ajax/writing',form)
                          .then((e)=>{
                              this.$router.push('/notes')

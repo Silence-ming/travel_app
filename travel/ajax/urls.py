@@ -5,6 +5,7 @@ urlpatterns = [
     path('askDetail/',askDetail),
     path('askQuestion/',askQuestion),
     path('notes/',notes),
+    path('note_detail/',note_detail),
     path('login/',login),
     path('reg/',reg),
     path('person/',person),

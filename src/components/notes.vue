@@ -4,23 +4,23 @@
         <v-touch  @panstart="panstart" @panleft="panleft" @panright="panright" @panend="panend">
             <div class="view">
                 <div class="bigBox" ref="box">
-                     <v-touch tag="div" class="box" v-for="item in banner" v-on:tap="details(item.id)">
+                     <v-touch tag="div" class="box" v-for="item in banner" v-on:tap="details(item)">
                         <img :src="item.img" alt="">
-                        <p>{{ item.experience }}</p>
+                        <p>{{ item.title }}</p>
                     </v-touch>
                 </div>
             </div>
         </v-touch>
     </div>
      <div class="bottom">
-         <v-touch tag="div" class="box" v-for="item in notes" v-on:tap="details(item.id)">
+         <v-touch tag="div" class="box" v-for="item in notes" v-on:tap="details(item)">
              <div class="left">
                  <div class="t">
                      <img :src="item.head" alt="">
                      <span>{{item.name}}</span>
                  </div>
-                 <div class="b">{{item.experience}}</div>
-                 <div class="time">{{item.times}}</div>
+                 <div class="title">{{item.title.slice(0,25)}}</div>
+                 <div class="con">{{item.experience.slice(0,25)+'......'}}</div>
              </div>
              <div class="right">
                  <img :src="item.img" alt="">
@@ -93,8 +93,8 @@ export default {
                     this.$refs.box.style.marginLeft=-this.num*100+'%'
                 }
             },
-            details(id){
-               this.$router.push('/notedetail/'+id)
+            details(item){
+               this.$router.push('/notedetail/'+item.id+'/'+item.title)
             },
             writing(){
               if (this.uid){
@@ -134,7 +134,7 @@ export default {
         width:100%;height:100%;
     }
     .top .bigBox .box p{
-        width:100%;font-size: 15px;
+        width:95%;font-size: 15px;height:auto;
         font-weight: 600;position: absolute;
         bottom:0.2rem;left:0.2rem;color:#fff;
     }
@@ -142,7 +142,7 @@ export default {
     width:100%;height:auto;
   }
   .bottom .box{
-    width:100%;height:2rem;margin-top:0.2rem;
+    width:100%;height:2.3rem;margin-top:0.2rem;
   }
   .bottom .box:last-child{
     padding-bottom:4.5rem;
@@ -162,19 +162,21 @@ export default {
     display: block;width:1rem;height:0.5rem;float:left;
     margin-left:0.1rem;margin-top:0.15rem;font-size:13px;color:#2FCBFF;
   }
-  .left .b{
-    width:100%;height:1.2rem;margin-left:0.1rem;
-    margin-top:0.2rem;font-size:15px;overflow: hidden;
+  .left .title{
+    width:100%;height:auto;margin-left:0.1rem;
+    font-size:15px;overflow: hidden;
   }
-  .left .time{
-      font-size:12px;color:#757575;margin-left: 0.1rem;
+  .left .con{
+      width:100%;height:auto;margin-top:0.1rem;
+      font-size:14px;color:#757575;margin-left: 0.1rem;
   }
   .box .right{
-    width:40%;height:2rem;margin-top:0.1rem;
+    width:40%;height:2rem;margin-top:0.05rem;
     float:right;
   }
   .right img{
-    width:95%;height:2rem;margin-left:0.2rem;
+    width:95%;height:2.1rem;margin-left:0.2rem;
+      margin-top:.1rem;
   }
     .asking{
     width:1.8rem;height:0.8rem;border-radius: 0.5rem;

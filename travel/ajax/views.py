@@ -38,11 +38,17 @@ def askDetail(req):
 def notes(req):
     my = sql()
     notes = my.sel_many(
-        'select *,users.name,users.head,users.id from travel_note left join users on travel_note.uid=users.id order by travel_note.times desc')
+        'select *,users.name,users.head,users.id from travel_note left join users on travel_note.uid=users.id order by travel_note.id desc')
     my.close()
     return HttpResponse(json.dumps(notes))
 
-
+def note_detail(req):
+    if req.method == 'GET':
+        nid = req.GET.get('nid')
+        my = sql()
+        note_detail =my.sel_one('select * from note_detail where nid = %s',[nid])
+        my.close()
+        return HttpResponse(json.dumps(note_detail))
 def login(req):
     userName = req.GET.get('userName')
     password = req.GET.get('password')
@@ -173,23 +179,20 @@ def answer(req):
 @csrf_exempt
 def writing(req):
     if req.method == 'POST':
-        img_file = req.FILES.get('img_file')
-        experience = req.POST.get('experience')
+        img_files = req.FILES.get('img_files')
+        note = req.POST.get('note')
+        experience = note.split('。')[0]
+        title = note.split('。')[3]
         uid = req.POST.get('uid')
         fileName = './static/img/'+str(int(time.time())*1000) + '.jpg'
         with open(fileName,'wb') as file:
-            for chrunk in img_file.chunks():
+            for chrunk in img_files.chunks():
                 file.write(chrunk)
-        now = '发表于'+str(time.strftime('%Y.%m.%d', time.localtime(time.time())))
         my = sql()
-        try:
-            insert_id = my.one('insert into travel_note (uid,times,img,experience) values (%s,%s,%s,%s)',[uid,now,'http://localhost:8000/'+fileName,experience])
-        except Exception:
-            my.close()
-            return HttpResponse('no')
-        else:
-            my.close()
-            return HttpResponse('ok')
+        insert_id = my.one('insert into travel_note (uid,title,img,experience) values (%s,%s,%s,%s)',[uid,title,'http://localhost:8000/'+fileName,experience])
+        my.one('insert into note_detail (note,img_urls,nid) values(%s,%s,%s)',[note,'http://localhost:8000/'+fileName,insert_id])
+        my.close()
+        return HttpResponse('ok')
 
 @csrf_exempt
 def collect(req):

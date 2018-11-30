@@ -69,6 +69,7 @@ export default {
       position: absolute;top:0.3rem;left:0.6rem;
   }
   .content{
+    letter-spacing: 1px;
     width:100%;margin-top:0.6rem;
   }
   .content .box{

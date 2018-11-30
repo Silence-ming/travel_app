@@ -89,7 +89,7 @@ export default new Router({
       component: asking
     },
       {
-      path: '/notedetail/:id',
+      path: '/notedetail/:id/:title',
       name: 'notedetail',
       component: noteDetail
     },
